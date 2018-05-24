@@ -2,7 +2,7 @@
 
 /**
  * Class to represent a database connection
- *
+ * Simple fork that forces phppgadmin to use a newer version. Most base functions should work
  * $Id: Connection.php,v 1.15 2008/02/18 21:42:47 ioguix Exp $
  */
 
@@ -90,6 +90,11 @@ class Connection {
 			case '7.5': return 'Postgres80'; break;
 			case '7.4': return 'Postgres74'; break;
 		}
+		// Insert your version number here
+		// Example case '10.4'
+		switch (substr($version,0,4)) {
+                	case 'X.X': return 'Postgres'; break;
+                }
 
 		/* All <7.4 versions are not supported */
 		// if major version is 7 or less and wasn't cought in the
